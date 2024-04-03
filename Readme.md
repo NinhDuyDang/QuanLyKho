@@ -20,9 +20,9 @@ logging.level.org.hibernate.SQL=DEBUG
 
 ```
 ### Bước 2: Chạy chương trình
-- Tiến hành clone code từ https://github.com/nhp1807/Project2-QuanLyXuatNhapKho hoặc tải theo định dạng .zip.
+- Tiến hành clone code từ https://github.com/NinhDuyDang/QuanLyKho.git hoặc tải theo định dạng .zip.
 ```bash
-git clone https://github.com/nhp1807/Project2-QuanLyXuatNhapKho.git
+git clone https://github.com/NinhDuyDang/QuanLyKho.git
 
 ```
 - Tiếp theo sử dụng Visual Studio Code hoặc IntelliJ mở folder dẫn vào chương trình. Để chạy chương trình, ta chạy file 'QuanLyNhapXuatKhoApplication.java' theo đường dẫn sau:  '\src\main\java\com\example\QuanLyNhapXuatKho\QuanLyNhapXuatKhoApplication.java'
