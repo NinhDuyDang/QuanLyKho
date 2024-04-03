@@ -1,0 +1,54 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background-image:url(../image/login/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 35px;
+    width: fit-content;
+    border-radius: 5px;
+    border-color: gray;
+}
+
+label{
+    display: block;
+    text-align: left;
+    margin-bottom: -5px;
+}
+
+button{
+    margin-top: 10px;
+}
+
+form{
+    display: inline-block;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 200px; */
+    text-align: center;
+}
+
+.card{
+    width: 350px;
+    /* justify-content: center; */
+    opacity: 0.9;
+    border-radius: 10px;
+}

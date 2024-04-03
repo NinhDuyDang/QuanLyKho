@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
+    <link rel="stylesheet" href="/css/danh_sach_styles.css">
+    <link rel="stylesheet" href="/css/navbar_styles.css">
+    <script src="../js/admin.js"></script>
+
+    <title>Sản phẩm</title>
+</head>
+
+<body>
+<div class="sidebar">
+    <div class="information">
+        <img src="/image/logo.jpg" width="10%" alt="">
+    </div>
+    <h2>Welcome, <a href="" th:text="${currentAccount}"></a></h2>
+    <div>
+        <div class="header-nav"><span class="material-symbols-outlined">home</span><a
+                th:href="@{/khach-hang/trang-chu}">Trang
+            chủ</a></div>
+        <div class="header-nav"><span class="material-symbols-outlined">info</span><a
+                th:href="@{/khach-hang/chinh-sua-thong-tin}">Thông tin cá nhân</a></div>
+        <div class="header-nav"><span class="material-symbols-outlined">password</span><a
+                th:href="@{/khach-hang/doi-mat-khau}">Đổi mật khẩu</a></div>
+        <div class="header-nav"><span class="material-symbols-outlined">inventory_2</span><a
+                th:href="@{/khach-hang/danh-sach-san-pham}">Danh sách sản phẩm</a></div>
+        <div class="header-nav"><span class="material-symbols-outlined">shopping_cart</span><a
+                th:href="@{/khach-hang/danh-sach-dat-hang}">Danh sách đặt hàng</a></div>
+        <div class="header-nav"><span class="material-symbols-outlined">history</span><a
+                th:href="@{/khach-hang/lich-su}">Lịch sử mua hàng</a></div>
+        <div class="header-nav"><span class="material-symbols-outlined">logout</span><a th:href='@{/login}'>Đăng
+            xuất</a>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div style="display: flex; justify-content: center">
+        <form th:action="@{/khach-hang/danh-sach-san-pham/phu-tung}">
+            <input type="text" name="ten" placeholder="Nhập tên">
+            <input type="text" name="hang" placeholder="Nhập hãng">
+            <input type="submit" value="Tìm kiếm">
+        </form>
+    </div>
+    <div class="content-header" style="margin-top: 20px">
+        <h1>Danh sách phụ tùng</h1>
+    </div>
+
+    <div class="table-header">Bảng giá phụ tùng</div>
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+            <th class="align-middle text-center col-1">ID</th>
+            <th class="align-middle text-center col-3">Tên sản phẩm</th>
+            <th class="align-middle text-center col-2">Hãng</th>
+            <th class="align-middle text-center col-3">Thông tin</th>
+            <th class="align-middle text-center col-1">Đơn giá (VNĐ)</th>
+            <th class="align-middle text-center col-1">Số lượng</th>
+            <th class="align-middle text-center col-1">Chức năng</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="sanpham: ${listPhutung}" th:if="${sanpham.soLuongTrongKho > 0}">
+            <th class="align-middle col-1 text-center" th:text="${sanpham.maSanPham}"></th>
+            <th class="align-middle col-3" th:text="${sanpham.tenSanPham}"></th>
+            <th class="align-middle col-2" th:text="${sanpham.hangSanPham}"></th>
+            <th class="align-middle col-3" th:text="${sanpham.thongTinSanPham}"></th>
+            <th class="align-middle col-1 text-center" th:text="${sanpham.giaXuat}"></th>
+            <th class="align-middle col-1 text-center" th:text="${sanpham.soLuongTrongKho}"></th>
+            <th class="text-center col-1">
+                <a th:href="@{/khach-hang/danh-sach-san-pham/dat-hang/{maSanPham}(maSanPham=${sanpham.maSanPham})}"
+                   class="btn btn-primary" th:if="${sanpham.soLuongTrongKho > 0}">Đặt</a>
+                <a class="btn btn-danger" th:unless="${sanpham.soLuongTrongKho > 0}">Hết</a>
+            </th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

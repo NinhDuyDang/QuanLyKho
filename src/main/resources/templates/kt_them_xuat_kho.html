@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
+  <link rel="stylesheet" href="/css/form_styles.css">
+  <link rel="stylesheet" href="/css/navbar_styles.css">
+
+  <title>Thêm hóa đơn</title>
+</head>
+
+<body>
+<div class="sidebar">
+  <div class="information">
+    <img src="/image/logo.jpg" width="10%" alt="">
+  </div>
+  <h2>Welcome, <a href="" th:text="${currentAccount}"></a></h2>
+  <div>
+    <div class="header-nav"><span class="material-symbols-outlined">home</span><a
+            th:href="@{/ke-toan/trang-chu}">Trang
+      chủ</a></div>
+    <div class="header-nav"><span class="material-symbols-outlined">menu</span><a
+            th:href="@{/ke-toan/danh-sach-tai-khoan}">Danh sách tài khoản</a></div>
+    <div class="header-nav"><span class="material-symbols-outlined">info</span><a
+            th:href="@{/ke-toan/chinh-sua-thong-tin}">Thông tin cá nhân</a></div>
+    <div class="header-nav"><span class="material-symbols-outlined">password</span><a
+            th:href="@{/ke-toan/doi-mat-khau}">Đổi mật khẩu</a></div>
+    <div class="header-nav"><span class="material-symbols-outlined">inventory_2</span><a
+            th:href="@{/ke-toan/danh-sach-san-pham}">Danh sách sản phẩm</a></div>
+    <div class="header-nav"><span class="material-symbols-outlined">arrow_forward</span><a
+            th:href="@{/ke-toan/danh-sach-nhap-kho}">Nhập kho</a></div>
+    <div class="header-nav"><span class="material-symbols-outlined">arrow_back</span><a
+            th:href="@{/ke-toan/danh-sach-xuat-kho}">Xuất kho</a></div>
+    <div class="header-nav"><span class="material-symbols-outlined">shopping_cart</span><a
+            th:href="@{/ke-toan/dat-hang}">Danh sách đặt hàng</a></div>
+    <div class="header-nav"><span class="material-symbols-outlined">analytics</span><a
+            th:href="@{/ke-toan/thong-ke}">Thống kê</a></div>
+    <div class="header-nav"><span class="material-symbols-outlined">logout</span><a th:href='@{/login}'>Đăng
+      xuất</a>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="content-header">
+    <h1>Thêm hóa đơn</h1>
+  </div>
+
+  <div class="content-information">
+    <form th:action="@{/ke-toan/them-xuat-kho}" id="information" th:object="${xuatkho}" method="post">
+      <!--            <div class="information-section">-->
+      <!--                <div>-->
+      <!--                    <p>Mã khách hàng</p>-->
+      <!--                </div>-->
+      <!--                <div><input type="text" th:field="*{maKhachHang}" class="information-section-input"></div>-->
+      <!--            </div>-->
+
+      <div class="information-section">
+        <div>
+          <p>SĐT khách hàng</p>
+        </div>
+        <div><input type="type" th:name="sdt" class="information-section-input"></div>
+      </div>
+
+      <div class="information-section">
+        <div>
+          <p>Ngày nhập</p>
+        </div>
+        <div><input type="date" th:field="*{ngayNhap}" class="information-section-input"></div>
+      </div>
+
+      <div class="submit-button">
+        <!-- <a href="./ad_dstk.html" class="btn btn-primary">Lưu</a> -->
+        <button type="submit" class="btn btn-primary">Xác nhận</button>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
